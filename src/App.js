@@ -21,6 +21,7 @@ function App() {
     async function fetchData(){
       await axios('https://swapi.co/api/')
       .then(resp => {
+        console.log(resp, 'resp')
         setPages(Object.keys(resp.data))
         setLoading(false)
       })
@@ -29,7 +30,7 @@ function App() {
   }, [])
 
   if(loading) return <Main>Loading...</Main>
-
+  console.log(pages, 'pages')
   return (
     <Main container>
       <Router>
